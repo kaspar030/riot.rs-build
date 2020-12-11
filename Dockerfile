@@ -21,6 +21,6 @@ RUN chmod +x /tini
 ENTRYPOINT ["/tini", "--"]
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="~/.cargo/bin:${PATH}"
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 CMD ["/bin/bash"]
