@@ -23,4 +23,12 @@ ENTRYPOINT ["/tini", "--"]
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 
+RUN rustup target add thumbv7m-none-eabi && \
+    rustup target add thumbv7em-none-eabi && \
+    rustup target add thumbv7em-none-eabihf
+
+RUN rustup install nightly-2019-12-05 && \
+    rustup component add --toolchain nightly-2019-12-05 rustfmt rustc-dev && \
+    cargo +nightly-2019-12-05 install --debug --git https://github.com/kaspar030/c2rust --branch for-riot c2rust
+
 CMD ["/bin/bash"]
