@@ -1,7 +1,7 @@
 #
 # RIOT-rs CI Dockerfile
 #
-FROM ubuntu:focal
+FROM ubuntu:jammy
 
 MAINTAINER Kaspar Schleiser <kaspar@schleiser.de>
 
@@ -27,8 +27,6 @@ RUN rustup target add thumbv7m-none-eabi && \
     rustup target add thumbv7em-none-eabi && \
     rustup target add thumbv7em-none-eabihf
 
-RUN rustup install nightly-2019-12-05 && \
-    rustup component add --toolchain nightly-2019-12-05 rustfmt rustc-dev && \
-    cargo +nightly-2019-12-05 install --debug --git https://github.com/kaspar030/c2rust --branch for-riot c2rust
+RUN cargo install c2rust
 
 CMD ["/bin/bash"]
