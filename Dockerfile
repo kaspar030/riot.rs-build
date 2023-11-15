@@ -27,6 +27,6 @@ RUN rustup target add thumbv7m-none-eabi && \
     rustup target add thumbv7em-none-eabi && \
     rustup target add thumbv7em-none-eabihf
 
-RUN cargo install c2rust
+RUN cargo install --version 0.17.0 c2rust
 
 CMD ["/bin/bash"]
