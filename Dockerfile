@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y update \
     && apt-get -y install \
-    build-essential curl git python3 pkg-config libssl-dev llvm-dev cmake libclang-dev gcc-arm-none-eabi clang libnewlib-nano-arm-none-eabi unzip lld gpg qemu-system-arm \
+    build-essential curl git python3 pkg-config libssl-dev llvm-dev cmake libclang-dev gcc-arm-none-eabi clang unzip lld gpg qemu-system-arm \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV TINI_VERSION v0.19.0
